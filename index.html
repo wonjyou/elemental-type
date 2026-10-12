@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Elemental Type</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="gl"></canvas>
+
+  <header class="brand">
+    <div class="logo">Elemental<span>Type</span></div>
+    <div class="hint">Drag through the letters · keys <kbd>1</kbd>–<kbd>5</kbd> switch matter · <kbd>H</kbd> hides the panel</div>
+  </header>
+  <div class="stats" id="stats"></div>
+
+  <div class="dock" id="dock">
+    <button class="collapse" id="collapseBtn" type="button" aria-expanded="true" aria-controls="dockBody" title="Collapse controls" aria-label="Collapse controls">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <button class="mini" id="miniBar" type="button" title="Show controls" aria-label="Show controls">
+      <span class="sw" id="miniSw"></span>
+      <span class="mini-mat" id="miniMat">Water</span>
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg>
+    </button>
+    <div class="dock-body" id="dockBody">
+    <div class="mats" id="mats" role="tablist" aria-label="Particle material"></div>
+    <div class="row">
+      <label class="field word">
+        <span>Word</span>
+        <input id="word" maxlength="18" spellcheck="false" autocomplete="off">
+      </label>
+      <div class="field font" id="fontField">
+        <span>Fonts</span>
+        <button class="font-btn" id="fontBtn" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span id="fontName">Abril Fatface</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 15l6-6 6 6"/></svg>
+        </button>
+        <div class="font-pop" id="fontPop" hidden>
+          <input id="fontSearch" spellcheck="false" autocomplete="off" placeholder="Search, or type any Google Font…">
+          <div class="font-list" id="fontList" role="listbox" aria-label="Fonts"></div>
+        </div>
+      </div>
+      <button class="icon" id="dice" title="Shuffle font" aria-label="Shuffle font">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m18 14 4 4-4 4"/><path d="m18 2 4 4-4 4"/><path d="M2 18h1.97a4 4 0 0 0 3.3-1.7l5.46-7.6a4 4 0 0 1 3.3-1.7H22"/><path d="M2 6h1.97a4 4 0 0 1 3.6 2.2"/><path d="M22 18h-6.04a4 4 0 0 1-3.3-1.8l-.36-.45"/></svg>
+      </button>
+      <button class="icon" id="replay" title="Replay entrance" aria-label="Replay entrance">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4.5h4.5"/></svg>
+      </button>
+    </div>
+    <div class="status" id="status" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="fatal" id="fatal" hidden></div>
+  <script src="main.js"></script>
+</body>
+</html>
